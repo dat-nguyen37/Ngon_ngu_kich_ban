@@ -34,3 +34,12 @@ exports.comment=async(req,res,next)=>{
     }
   
   }
+  exports.delete=async(req,res,next)=>{
+    try {
+     const data=await Comment.destroy({where:{id:req.params.id}})
+     res.status(200).json(data)
+    } catch (err) {
+     res.status(500).json(err)
+    }
+  
+  }
